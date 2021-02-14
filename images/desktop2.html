@@ -1,0 +1,262 @@
+<html>
+<head>
+<title>Main</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META content="240; &#10;URL=../spotsgame.html" http-equiv=Refresh>
+<SCRIPT language=JavaScript>
+<!--DocOzone's Javascript code, copyright 1999
+//  Feel free to borrow and modify this code, 
+//  but be sure leave this credit in the source!  
+//  Your pal,   -Dr. Thaddeus Ozone-    
+//        http://www.ozones.com/
+
+// this is the initialization and error trapping section
+window.onerror=null;
+netscape = (document.layers) ? 1:0
+goodIE = (document.all) ? 1:0
+document.onmousemove=MoveHandler;
+if (netscape) {
+window.captureEvents(Event.MOUSEMOVE);
+window.onMouseMove = MoveHandler;
+ }
+ 
+var tracking = 1;
+ 
+var Xclick = 0;
+var Yclick = 0;
+var tempX = 0;
+var tempY = 0;
+var tempXb = 0;
+var tempYb = 0;
+
+
+if (netscape) {
+   var layerstart = "document.";
+   var layerleft = ".left";
+   var layertop = ".top";
+   var layerstyle = "";
+   var windowWidth = window.innerWidth-16;
+   var windowHeight = window.innerHeight-16;
+   }
+else if (goodIE) {
+   layerstart = "document.all.";
+   layerleft = ".left";
+   layertop = ".top";
+   layerstyle = ".style";
+   var windowWidth=600;
+   var windowHeight=600;
+ }
+// end error trapping
+   
+
+window.onResize="history.go(0); setup()";
+   var Ypos2 = 72;
+   var Xpos2 = windowWidth/2;
+
+function MoveHandler(e) {
+if (netscape || goodIE) {
+  Xpos2 = (netscape)?e.pageX:event.x
+  Ypos2 = (netscape)?e.pageY:event.y
+}}
+
+function target() {
+if ((netscape || goodIE) && tracking) {
+tracking = 1;
+  Xclick = Xpos2;
+  Yclick = Ypos2;
+//  Xpos = Xpos2;
+//  Ypos = Ypos2;
+  tempX = -1164 + ((Xclick-36)/10);
+  tempY = -1164 + ((Yclick-36)/10);
+  tempXb = (windowWidth) - ((windowWidth-Xclick)/10);
+  tempYb = (windowHeight) - ((windowHeight-Yclick)/10);
+  moveit();
+}}
+
+function moveit() {
+if ((tracking) && (tempX <= (Xclick-1200))) {
+  eval(layerstart+"floater"+layerstyle+layerleft+" = Math.round(tempX);");
+  tempX = tempX + ((Xclick-36)/10);
+  eval(layerstart+"floater2"+layerstyle+layertop+" = Math.round(tempY);");
+  tempY = tempY + ((Yclick-36)/10);
+  
+  eval(layerstart+"floaterb"+layerstyle+layerleft+" = Math.round(tempXb);");
+  tempXb = tempXb - ((windowWidth-Xclick)/10);
+  eval(layerstart+"floater2b"+layerstyle+layertop+" = Math.round(tempYb);");
+  tempYb = tempYb - ((windowHeight-Yclick)/10);
+setTimeout('moveit()',50);
+}
+else { moveitback(); }}
+
+function moveitback() {
+if (tempX >= -1164) {
+  eval(layerstart+"floater"+layerstyle+layerleft+" = Math.round(tempX);");
+  tempX = tempX - ((Xclick-36)/10);
+  eval(layerstart+"floater2"+layerstyle+layertop+" = Math.round(tempY);");
+  tempY = tempY - ((Yclick-36)/10);
+  
+  eval(layerstart+"floaterb"+layerstyle+layerleft+" = Math.round(tempXb);");
+  tempXb = tempXb + ((windowWidth-Xclick)/10);
+  eval(layerstart+"floater2b"+layerstyle+layertop+" = Math.round(tempYb);");
+  tempYb = tempYb + ((windowHeight-Yclick)/10);
+setTimeout('moveitback()',50);
+}
+else { tracking=1; target();
+  eval(layerstart+"floater"+layerstyle+layerleft+" = -1164;");
+eval(layerstart+"floater2"+layerstyle+layertop+" = -1164;");
+  eval(layerstart+"floaterb"+layerstyle+layerleft+" = windowWidth-36;");
+eval(layerstart+"floater2b"+layerstyle+layertop+" = windowHeight-36;");
+  }}
+
+function MoveHandler2() {
+if (netscape || goodIE) {
+if (tracking) {
+  eval(layerstart+"floater"+layerstyle+layertop+" = Ypos2;");
+eval(layerstart+"floaterb"+layerstyle+layertop+" = Ypos2;");
+  eval(layerstart+"floater2"+layerstyle+layerleft+" = Xpos2;");
+eval(layerstart+"floater2b"+layerstyle+layerleft+" = Xpos2;"); }
+  eval(layerstart+"floaterX"+layerstyle+layertop+" = windowHeight-Ypos2;");
+eval(layerstart+"floaterbX"+layerstyle+layertop+" = windowHeight-Ypos2;");
+  eval(layerstart+"floater2X"+layerstyle+layerleft+" = windowWidth-Xpos2;");
+eval(layerstart+"floater2bX"+layerstyle+layerleft+" = windowWidth-Xpos2;");
+}
+tracker=setTimeout('MoveHandler2()',5);
+}
+
+function setup() {
+if (goodIE) {
+windowWidth=document.body.clientWidth-16;
+windowHeight=document.body.clientHeight-16; }
+Ypos = windowHeight/2-42;
+Xpos = windowWidth/2-74;
+  eval(layerstart+"floaterb"+layerstyle+layerleft+" = windowWidth-36;");
+eval(layerstart+"floater2b"+layerstyle+layertop+" = windowHeight-36;");
+  eval(layerstart+"floaterbX"+layerstyle+layerleft+" = windowWidth-36;");
+eval(layerstart+"floater2bX"+layerstyle+layertop+" = windowHeight-36;");
+
+  eval(layerstart+"eye1"+layerstyle+layerleft+" = (windowWidth-148)/2;");
+//  eval(layerstart+"eye2"+layerstyle+layerleft+" = (windowWidth-444)/2;");
+//  eval(layerstart+"eye3"+layerstyle+layerleft+" = (windowWidth+148)/2;");
+//  eval(layerstart+"eye4"+layerstyle+layerleft+" = (windowWidth-148)/2;");
+
+}
+
+   var Ypos = windowHeight/2-42;
+   var Xpos = windowWidth/2-74;
+var foo = 120;
+var X = new Array( 0, 0, foo/3, (foo/3)*2, foo );
+var updown = new Array( 1, 1, 1, 1, 1, 1 );
+
+function littlejewels() {
+if (netscape || goodIE) {
+  for ( j = 1 ; j <= 1 ; j++ ) {
+eval(layerstart+"eye"+j+layerstyle+layertop+"=(Ypos+(Math.sqrt(foo*foo-(X[j]*X[j])))*updown[j]);");
+eval(layerstart+"eye"+j+layerstyle+layerleft+"=Xpos+(X[j]*2);");
+
+X[j] = X[j] + (updown[j]*2); 
+if (X[j] >foo) { X[j] = foo;  updown[j] = -1; }
+if (X[j] <-foo) { X[j] = -foo;  updown[j] = 1; }
+  }
+
+setTimeout("littlejewels()", 10) ;
+}}
+
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+
+<STYLE type=text/css>#floater {
+	clipBottom: 1px; clipLeft: 0px; clipRight: 1200px; clipTop: 0px; HEIGHT: 1px; LEFT: -1164px; POSITION: absolute; TOP: 0px; WIDTH: 1200px; Z-INDEX: 100
+}
+#floater2 {
+	clipBottom: 1200px; clipLeft: 0px; clipRight: 1px; clipTop: 0px; HEIGHT: 1200px; LEFT: 0px; POSITION: absolute; TOP: -1164px; WIDTH: 1px; Z-INDEX: 100
+}
+#floaterb {
+	clipBottom: 1px; clipLeft: 0px; clipRight: 1200px; clipTop: 0px; HEIGHT: 1px; LEFT: -1200px; POSITION: absolute; TOP: 0px; WIDTH: 1200px; Z-INDEX: 100
+}
+#floater2b {
+	clipBottom: 1200px; clipLeft: 0px; clipRight: 1px; clipTop: 0px; HEIGHT: 1200px; LEFT: 0px; POSITION: absolute; TOP: 0px; WIDTH: 1px; Z-INDEX: 100
+}
+#floaterX {
+	clipBottom: 1px; clipLeft: 0px; clipRight: 1200px; clipTop: 0px; HEIGHT: 1px; LEFT: -1164px; POSITION: absolute; TOP: 0px; WIDTH: 1200px; Z-INDEX: 100
+}
+#floater2X {
+	clipBottom: 1200px; clipLeft: 0px; clipRight: 1px; clipTop: 0px; HEIGHT: 1200px; LEFT: 0px; POSITION: absolute; TOP: -1164px; WIDTH: 1px; Z-INDEX: 100
+}
+#floaterbX {
+	clipBottom: 1px; clipLeft: 0px; clipRight: 1200px; clipTop: 0px; HEIGHT: 1px; LEFT: -1200px; POSITION: absolute; TOP: 0px; WIDTH: 1200px; Z-INDEX: 100
+}
+#floater2bX {
+	clipBottom: 1200px; clipLeft: 0px; clipRight: 1px; clipTop: 0px; HEIGHT: 1200px; LEFT: 0px; POSITION: absolute; TOP: 0px; WIDTH: 1px; Z-INDEX: 100
+}
+#eye1 {
+	clipBottom: 84px; clipLeft: 0px; clipRight: 148px; clipTop: 0px; HEIGHT: 84px; LEFT: 148px; POSITION: absolute; TOP: 60px; WIDTH: 148px; Z-INDEX: 50
+}
+#eye2 {
+	clipBottom: 84px; clipLeft: 0px; clipRight: 148px; clipTop: 0px; HEIGHT: 84px; LEFT: 0px; POSITION: absolute; TOP: 144px; WIDTH: 148px; Z-INDEX: 50
+}
+#eye3 {
+	clipBottom: 84px; clipLeft: 0px; clipRight: 148px; clipTop: 0px; HEIGHT: 84px; LEFT: 296px; POSITION: absolute; TOP: 144px; WIDTH: 148px; Z-INDEX: 50
+}
+#eye4 {
+	clipBottom: 84px; clipLeft: 0px; clipRight: 148px; clipTop: 0px; HEIGHT: 84px; LEFT: 148px; POSITION: absolute; TOP: 228px; WIDTH: 148px; Z-INDEX: 50
+}
+#blank {
+	HEIGHT: 1200px; LEFT: 0px; POSITION: absolute; TOP: 0px; WIDTH: 1600px; Z-INDEX: 5000
+}
+#a1 {
+	clipBottom: 9px; clipLeft: 0px; clipRight: 9px; clipTop: 0px; HEIGHT: 9px; LEFT: 320px; POSITION: absolute; TOP: 2px; WIDTH: 9px; Z-INDEX: 2000
+}
+#a2 {
+	clipBottom: 9px; clipLeft: 0px; clipRight: 9px; clipTop: 0px; HEIGHT: 9px; LEFT: 300px; POSITION: absolute; TOP: 2px; WIDTH: 9px; Z-INDEX: 2000
+}
+#a3 {
+	clipBottom: 9px; clipLeft: 0px; clipRight: 9px; clipTop: 0px; HEIGHT: 9px; LEFT: 280px; POSITION: absolute; TOP: 2px; WIDTH: 9px; Z-INDEX: 2000
+}
+#a4 {
+	clipBottom: 9px; clipLeft: 0px; clipRight: 9px; clipTop: 0px; HEIGHT: 9px; LEFT: 260px; POSITION: absolute; TOP: 2px; WIDTH: 9px; Z-INDEX: 2000
+}
+#a5 {
+	clipBottom: 9px; clipLeft: 0px; clipRight: 9px; clipTop: 0px; HEIGHT: 9px; LEFT: 240px; POSITION: absolute; TOP: 2px; WIDTH: 9px; Z-INDEX: 2000
+}
+</STYLE>
+<META content='"MSHTML 5.00.0910.1309"' name=GENERATOR>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+</head>
+<body bgcolor="#000000" onLoad="MM_preloadImages('MATT.jpg')";MoveHandler2();littlejewels()>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="315">
+  <tr> 
+    <td> 
+      <div align="center"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image8','','MATT.jpg',1)"><img src="Matt2.jpg" width="199" height="170" align="middle" border="0" name="Image8"></a></div>
+    </td>
+  </tr>
+  <tr> 
+    <td> 
+      <div align="center"><a href="mailto:MMMolsberry@CSUPomona.edu"><font color="#990000" face="Arial, Helvetica, sans-serif">MMMolsberry@CSUPomona.edu</font></a></div>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
