@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<script language="JavaScript1.2">
+var currentpos=0,alt=1,curpos1=2,curpos2=-20
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)
+alt=1
+else
+alt=0
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+3
+else
+currentpos=window.pageYOffset+3
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+function startit(){
+setInterval("scrollwindow()",100)
+}
+window.onload=initialize
+</script>
+
+<body bgcolor="#000000">
+<table width="75%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+      <div align="center"><img src="path2/a.jpg" width="640" height="480"></div>
+    </td>
+  </tr>
+  <tr>
+    <td><img src="path2/b.jpg" width="640" height="480"></td>
+  </tr>
+  <tr>
+    <td><img src="path2/c.jpg" width="640" height="480"></td>
+  </tr>
+  <tr>
+    <td><img src="path2/1c.jpg" width="640" height="480"></td>
+  </tr>
+  <tr>
+    <td><img src="path2/1.jpg" width="640" height="480"></td>
+  </tr>
+  <tr>
+    <td><img src="path2/1a.jpg" width="640" height="480"></td>
+  </tr>
+  <tr>
+    <td><img src="path2/pews.jpg" width="640" height="480"></td>
+  </tr>
+  <tr>
+    <td><img src="path2/pews1.jpg" width="640" height="480"></td>
+  </tr>
+  <tr>
+    <td><img src="path2/sec1.gif" width="640" height="480"></td>
+  </tr>
+  <tr>
+    <td><img src="path2/sec2.gif" width="625" height="419" align="absmiddle"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

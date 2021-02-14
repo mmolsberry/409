@@ -1,0 +1,96 @@
+<HTML><HEAD><TITLE>VDS</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META content=butterflies http-equiv=KEYWORDS>
+<META content="sample of cursor trailer" http-equiv=DESCRIPTION>
+<META content="MSHTML 5.00.2722.2800" name=GENERATOR>
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</HEAD>
+<BODY bgColor=#000000 
+style="FONT-FAMILY: Lucida Sans" text=maroon>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<DIV align=center></DIV>
+<div align="center"> 
+  <p><a href="#" onClick="MM_openBrWindow('vds.html','001001010111010011010110100110','width=800,height=600')"><img src="Matt.jpg" width="632" height="184" border="0"></a></p>
+  <h2><BR>
+    <BR>
+  </h2>
+</div>
+<DIV align=center> </DIV>
+<SCRIPT>
+
+/*
+Cross browser cursor trailer script
+By Brian Caputo (bcaputo@icdc.com)
+Permission given to Dynamicdrive.com 
+to feature the script in it's DHTML archive
+For 100's more DHTML scripts and components,
+visit Dynamicdrive.com
+*/
+
+B=document.all;
+C=document.layers;
+T1=new Array("floaters/o.gif",20,20,"floaters/i.gif",20,20,"floaters/d.gif",20,20,"floaters/u.gif",20,20,"floaters/t.gif",20,20,"floaters/s.gif",20,20,"floaters/n.gif",20,20,"floaters/g.gif",20,20,"floaters/i.gif",20,20,"floaters/s.gif",20,20,"floaters/e.gif",20,20,"floaters/d.gif",20,20,"floaters/l.gif",20,20,"floaters/a.gif",20,20,"floaters/u.gif",20,20,"floaters/t.gif",20,20,"floaters/r.gif",20,20,"floaters/i.gif",20,20,"floaters/v.gif",20,20)
+nos=parseInt(T1.length/3)
+rate=200
+ie5fix1=0;
+ie5fix2=0;
+for (i=0;i<nos;i++){
+createContainer("CUR"+i,i*10,i*10,i*3+1,i*3+2,"","<img src='"+T1[i*3]+"' width="+T1[(i*3+1)]+" height="+T1[(i*3+2)]+" border=0>")}
+function createContainer(N,Xp,Yp,W,H,At,HT,Op,St){
+with (document){
+write((!B) ? "<layer id='"+N+"' left="+Xp+" top="+Yp+" width="+W+" height="+H : "<div id='"+N+"'"+" style='position:absolute;left:"+Xp+"; top:"+Yp+"; width:"+W+"; height:"+H+"; ");
+if(St){
+if (C)
+write(" style='");
+write(St+";' ")
+}
+else write((B)?"'":"");
+write((At)? At+">" : ">");
+write((HT) ? HT : "");
+if (!Op)
+closeContainer(N)
+}
+}
+function closeContainer(){
+document.write((B)?"</div>":"</layer>")
+}
+function getXpos(N){
+return (B) ? parseInt(B[N].style.left) : C[N].left
+}
+function getYpos(N){
+return (B) ? parseInt(B[N].style.top) : C[N].top
+}
+
+function moveContainer(N,DX,DY){
+c=(B) ? B[N].style :C[N];c.left=DX;c.top=DY
+}
+function cycle(){
+//if (IE5) 
+if (document.all&&window.print){
+ie5fix1=document.body.scrollLeft;
+ie5fix2=document.body.scrollTop;
+}
+for (i=0;i<(nos-1);i++){
+moveContainer("CUR"+i,getXpos("CUR"+(i+1)),getYpos("CUR"+(i+1)))
+}
+}
+function newPos(e){
+moveContainer("CUR"+(nos-1),(B)?event.clientX+ie5fix1:e.pageX+2,(B)?event.clientY+ie5fix2:e.pageY+2
+)
+}
+if(document.layers)
+document.captureEvents(Event.MOUSEMOVE)
+document.onmousemove=newPos
+setInterval("cycle()",rate)
+</SCRIPT>
+<NOSCRIPT> </NOSCRIPT>
+</BODY></HTML>

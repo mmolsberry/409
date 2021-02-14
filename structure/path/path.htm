@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>setup</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<script language="JavaScript1.2">
+var currentpos=0,alt=1,curpos1=2,curpos2=-20
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)
+alt=1
+else
+alt=0
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+3
+else
+currentpos=window.pageYOffset+3
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+function startit(){
+setInterval("scrollwindow()",100)
+}
+window.onload=initialize
+</script>
+<body bgcolor="#000000">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td>
+      <div align="center"><img src="Path1.jpg" width="640" height="480"></div>
+    </td>
+  </tr>
+  <tr> 
+    <td>
+      <div align="center"><img src="Path2.jpg" width="640" height="480"></div>
+    </td>
+  </tr>
+  <tr> 
+    <td>
+      <div align="center"><img src="Path4.jpg" width="640" height="480"></div>
+    </td>
+  </tr>
+  <tr> 
+    <td height="270"> 
+      <div align="left"><img src="Path5.jpg" width="380" height="282"><img src="Path6.jpg" width="383" height="284"></div>
+    </td>
+  </tr>
+  <tr> 
+    <td height="204"><img src="Path7.jpg" width="371" height="278"><img src="Path8.jpg" width="400" height="297"></td>
+  </tr>
+  <tr> 
+    <td height="230"><img src="Path9.jpg" width="381" height="284"><img src="Path10.jpg" width="383" height="285"></td>
+  </tr>
+  <tr> 
+    <td height="206"><img src="Path9a.jpg" width="378" height="279"><img src="Path10b.jpg" width="393" height="275"></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

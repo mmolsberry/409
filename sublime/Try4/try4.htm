@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>Try3</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<script language="JavaScript1.2">
+var currentpos=0,alt=1,curpos1=2,curpos2=-20
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)
+alt=1
+else
+alt=0
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+5
+else
+currentpos=window.pageYOffset+3
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+function startit(){
+setInterval("scrollwindow()",100)
+}
+window.onload=initialize
+</script>
+<body bgcolor="#000000">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+      <div align="center"><img src="try4a.gif" width="600" height="450"></div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center"><img src="try4b.gif" width="600" height="450"></div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center"><img src="try4c.gif" width="600" height="450"></div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center"><img src="try4d.gif" width="600" height="450"></div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center"><img src="try4e.gif" width="600" height="450"></div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center"><img src="try4f.gif" width="600" height="450"></div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center"><img src="try4h.gif" width="600" height="450"></div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center"><img src="try4i.gif" width="600" height="450"></div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center"><img src="try4j.gif" width="600" height="450"></div>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>
